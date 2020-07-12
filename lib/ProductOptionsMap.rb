@@ -1,9 +1,9 @@
 require 'set'
 
 class ProductOptionsMap
-  attr_accessor :map
+  attr_accessor :product_options_map
   def initialize
-    @map = {}   # { user_input => {option1 => Set(option1_values...), option2 => Set(option2_values) }}
+    @product_options_map = {}                     # { user_input => {option1 => Set(option1_values...), option2 => Set(option2_values...) }}
   end
 
   def add_product(product)
@@ -18,18 +18,17 @@ class ProductOptionsMap
     end
   end
 
-
-  # add remaining options to product options map for given product and potential
+  # add remaining options to @product_options_map for given product and potential
   # user input combo e.g tshirt+male => {color => Set(...), size => Set(...), ...}
   def add_values(subset, options)
     product_options_key = subset.join("")    # combination of product type and selected options                   
-    @map[product_options_key] = {} if @map[product_options_key] == nil
+    @product_options_map[product_options_key] = {} if @product_options_map[product_options_key] == nil
 
     options.each do |category, value|
       if !subset.include?(value)
-        !@map[product_options_key][category] ? 
-          @map[product_options_key][category] = Set.new([value]) :
-          @map[product_options_key][category].add(value)
+        !@product_options_map[product_options_key][category] ? 
+          @product_options_map[product_options_key][category] = Set.new([value]) :
+          @product_options_map[product_options_key][category].add(value)
       end
     end
   end

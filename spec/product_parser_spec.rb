@@ -32,7 +32,7 @@ describe ProductParser do
        
     end
 
-      it "                " do
+      it " " do
         puts
         puts "-----------|input: tshirt|----------------"
         product_parser.format_output(remaining_options)

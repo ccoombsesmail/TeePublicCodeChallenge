@@ -20,7 +20,8 @@ class ProductParser
     products.each do |product|
       product_options_map.add_product(product)
     end
-    product_options_map.map 
+
+    product_options_map.product_options_map
   end
 
 
@@ -46,8 +47,8 @@ class ProductParser
 end
 
 
-
-if ARGV != ["spec/product_parser_spec.rb"]
+# added this check b/c rspec was adding spec file name to ARGV which was causing issues when requiring product parser file
+if ARGV[0] && !ARGV[0].include?("product_parser_spec.rb")
   product_parser = ProductParser.new
   product_parser.format_output(product_parser.remaining_options)
 end
