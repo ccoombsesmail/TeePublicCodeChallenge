@@ -36,6 +36,15 @@ Obtaining the remaining options for a given input is then just an O(1) HashMap l
 
   Proccessing the json file is a one time operation after which extracting the remaining options for a given input combination is O(1)
 
-  If 'n' is the number of products in the list, and 'o' is the product with the max number of options, the processing takes O(n * $\sum_{k=1}^{10} t_i$)
+  If 'n' is the number of products in the list, and 'O' is the product with the max number of options, the processing takes O(n * 2^O) time.
+  
+  The 2^O comes from the possible combinations of option inputs. For each product, the number of combinations is: 
+  <br />
+  ![equation](https://i.ibb.co/2YSSPnC/comb1.png)
+  <br />
+  which has an upper bound of 2^O
+  
+
+
 
 
