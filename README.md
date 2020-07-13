@@ -9,9 +9,10 @@ e.g
 {
   "tshirt" => {"gender"=> <Set: {"male", "female"}>, 
               "color"=> <Set: {"red", "green", "navy", "white", "black"}>, 
-              "size"=> <Set: {"small", "medium", "large", "extra-large", "2x-large"}>
-}, ...
-
+              "size"=> <Set: {"small", "medium", "large", "extra-large", "2x-large"}>},
+  "tshirt+male" => { "color"=> <Set: {"red", "green", "navy", "white", "black"}>, 
+                    "size"=> <Set: {"small", "medium", "large", "extra-large", "2x-large"}>}, ...
+}
 ```
 
 Obtaining the remaining options for a given input is then just an O(1) HashMap lookup.
@@ -50,6 +51,8 @@ Obtaining the remaining options for a given input is then just an O(1) HashMap l
   Depending on the real-world constraints, the number of option categories could be considered constant. For example, in the data set given, O = 3.
   
   Adding a product to the HashMap is O(2^O)
+  
+  If the number of product options categories exceeds ~ 20, the processing could begin to take a while.
   
 
 
