@@ -1,7 +1,7 @@
 TeePublic Coding Challenge
 ======
 
-To solve this problem, I proccessed the json file of products into a HashMap where the keys are possible input combinations, and the values are themselves HashMaps whose keys are possible options that point to Sets that hold the option values.
+To solve this problem, I proccessed the json file of products into a Hash Map where the keys are possible input combinations, and the values are themselves Hash Maps whose keys are remaining options that point to Sets that hold the option values.
 
 e.g
 
@@ -15,7 +15,7 @@ e.g
 }
 ```
 
-Obtaining the remaining options for a given input is then just an O(1) HashMap lookup.
+Obtaining the remaining options for a given input is then just an O(1) Hash Map lookup.
 
 ### How to view
   The program output can be viewed in the terminal
@@ -52,7 +52,9 @@ Obtaining the remaining options for a given input is then just an O(1) HashMap l
   
   Adding a product to the HashMap is O(2^O)
   
-  If the number of product options categories exceeds ~ 20, the processing could begin to take a while.
+  If the number of product option categories for a single product type exceeds ~ 20 (which seems unlikely), the processing could begin to take a while, and a better solution may be required. Even so, the processing of the JSON file is a one time operation after which the HashMap is free to be accessed in O(1) time to return the remaining options.
+  
+  
   
 
 
