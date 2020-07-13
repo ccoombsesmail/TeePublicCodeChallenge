@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require "json"
-require 'set'
 require_relative "ProductOptionsMap"
 
 
@@ -32,7 +31,7 @@ class ProductParser
   end
 
 
-  def remaining_options(input = ARGV ) 
+  def remaining_options(input = ARGV) 
       begin
         if @product_options_map[input.join("")]
           return @product_options_map[input.join("")]
@@ -47,7 +46,7 @@ class ProductParser
 end
 
 
-# added this check b/c rspec was adding spec file name to ARGV which was causing issues when requiring product parser file
+# added this check b/c rspec command was adding spec file name to ARGV which was causing issues when requiring product_parser file
 if ARGV[0] && !ARGV[0].include?("product_parser_spec.rb")
   product_parser = ProductParser.new
   product_parser.format_output(product_parser.remaining_options)

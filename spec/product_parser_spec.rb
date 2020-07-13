@@ -46,7 +46,7 @@ describe ProductParser do
   context "when product type tshirt is specified with option male" do
     # p product_parser.product_options_map
     let (:remaining_options)  {product_parser.remaining_options(["tshirt", "male"]) }
-    it "remaining options does not includes category gender" do 
+    it "remaining options does not include category gender" do 
       expect(remaining_options).to_not include("gender")
      
     end
@@ -78,10 +78,10 @@ describe ProductParser do
   context "when product type tshirt is specified with option male and red" do
       # p product_parser.product_options_map
       let (:remaining_options)  {product_parser.remaining_options(["tshirt", "male", "red"]) }
-      it "remaining options does not includes category gender" do 
+      it "remaining options does not include category gender" do 
         expect(remaining_options).to_not include("gender")
       end
-      it "remaining options does not includes category color" do 
+      it "remaining options does not include category color" do 
         expect(remaining_options).to_not include("color")
       end
       it "remaining options includes category size and options small/medium/large/extra-large/2x-large" do 
@@ -103,7 +103,7 @@ describe ProductParser do
     context "when product type sticker is specified with option matte" do
     # p product_parser.product_options_map
     let (:remaining_options)  {product_parser.remaining_options(["sticker", "matte"]) }
-    it "remaining options does not includes category style" do 
+    it "remaining options does not include category style" do 
       expect(remaining_options).to_not include("style")
      
     end
