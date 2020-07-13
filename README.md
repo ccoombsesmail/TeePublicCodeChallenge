@@ -56,7 +56,7 @@ Obtaining the remaining options for a given input is then just an O(1) Hash Map 
   
   Adding a product to the Hash Map is O(2^O)
   
-  If the number of product option categories for a single product type exceeds ~ 20 (which seems unlikely), the could begin to take a while, and a better solution may be required. Even so, the processing of the JSON file is a one time operation after which the Hash Map is free to be accessed in O(1) time to return the remaining options.
+  If the number of product option categories for a single product type exceeds ~ 20 (which seems unlikely), the processing could begin to take a while, and a better solution may be required. Even so, the processing of the JSON file is a one time operation after which the Hash Map is free to be accessed in O(1) time to return the remaining options.
   
   
   
