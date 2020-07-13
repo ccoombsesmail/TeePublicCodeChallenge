@@ -1,17 +1,21 @@
 TeePublic Coding Challenge
 ======
 
-To solve this problem, I proccessed the json file of products into a Hash Map where the keys are possible input combinations, and the values are themselves Hash Maps whose keys are remaining options that point to Sets that hold the option values.
+To solve this problem, I proccessed the json file of products into a Hash Map where the keys are possible input combinations, and the values are themselves Hash Maps whose keys are the remaining options that point to Sets that hold the corresponding option values.
 
 e.g
 
 ```ruby
 {
-  "tshirt" => {"gender"=> <Set: {"male", "female"}>, 
+  "tshirt" => {
+              "gender"=> <Set: {"male", "female"}>, 
               "color"=> <Set: {"red", "green", "navy", "white", "black"}>, 
-              "size"=> <Set: {"small", "medium", "large", "extra-large", "2x-large"}>},
-  "tshirt+male" => { "color"=> <Set: {"red", "green", "navy", "white", "black"}>, 
-                    "size"=> <Set: {"small", "medium", "large", "extra-large", "2x-large"}>}, ...
+              "size"=> <Set: {"small", "medium", "large", "extra-large", "2x-large"}>
+              },
+  "tshirt+male" => {
+                "color"=> <Set: {"red", "green", "navy", "white", "black"}>, 
+                "size"=> <Set: {"small", "medium", "large", "extra-large", "2x-large"}>
+                }, ...
 }
 ```
 
@@ -50,9 +54,9 @@ Obtaining the remaining options for a given input is then just an O(1) Hash Map 
   
   Depending on the real-world constraints, the number of option categories could be considered constant. For example, in the data set given, O = 3.
   
-  Adding a product to the HashMap is O(2^O)
+  Adding a product to the Hash Map is O(2^O)
   
-  If the number of product option categories for a single product type exceeds ~ 20 (which seems unlikely), the processing could begin to take a while, and a better solution may be required. Even so, the processing of the JSON file is a one time operation after which the HashMap is free to be accessed in O(1) time to return the remaining options.
+  If the number of product option categories for a single product type exceeds ~ 20 (which seems unlikely), the could begin to take a while, and a better solution may be required. Even so, the processing of the JSON file is a one time operation after which the Hash Map is free to be accessed in O(1) time to return the remaining options.
   
   
   

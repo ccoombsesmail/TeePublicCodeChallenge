@@ -11,6 +11,7 @@ class ProductParser
     @product_options_map = pre_proccess_product_list
   end
 
+  # proccess json product list into ProductOptionsMap
   def pre_proccess_product_list
     file = File.open "./products.json"
     products = JSON.load file
@@ -24,13 +25,14 @@ class ProductParser
   end
 
 
+  # remaining_options will be a hash where keys are option categories and values are Sets of corresponding option values
   def format_output(remaining_options)
     remaining_options.each do |category, values|
       puts category.capitalize  + ": " + values.to_a.join(", ")
     end
   end
 
-
+  # extract remaining options from product_options_map
   def remaining_options(input = ARGV) 
       begin
         if @product_options_map[input.join("")]
